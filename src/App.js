@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
+import BodyView from "./BodyView";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+ const [currentView, setCurrentView] = useState("home");
+
+ const handleViewChange = (view) => {
+    setCurrentView(view);
+ };
+
+ return (
+    <div className="container">
+      <div className="green-bg" id="navigation-panel">
+        <i className="fa fa-home fa-4x nav-element" id="nav-home" onClick={() => handleViewChange("home")}></i><br/>
+        <i className="fa fa-calculator fa-4x nav-element" id="nav-calculators" onClick={() => handleViewChange("calculators")}></i><br/>
+        <i className="fa fa-bookmark-o fa-4x nav-element" id="nav-articles" onClick={() => handleViewChange("articles")}></i><br/>
+      </div>
+      {currentView === "home" && <BodyView/>}
+      {currentView === "calculators"}
+      {currentView === "articles"}
     </div>
-  );
+ );
 }
 
 export default App;

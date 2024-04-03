@@ -23,14 +23,16 @@ body {
 
 #navigation-panel {
   text-align: center;
-  width: 10%;
+  width: 5%;
   height: 100vh;
   top: 0;
   position: sticky;
 }
 
-#root {
-  width: 90%;
+#right-panel {
+  text-align: center;
+  width: 95%;
+  display: flex;
 }
 
 .container {
@@ -39,4 +41,37 @@ body {
 
  .nav-element {
   margin-top: 30px;
+ }
+
+
+ .body-view {
+  width: 35%;
+  margin-left: 1%;
+ }
+
+ .body-map__muscle path {
+  fill: white;
+ }
+
+ .body-map__muscle:hover path {
+  fill: #30c582;
+ }
+
+ *:focus {
+  outline: 0;
+ }
+
+ #bodies-panel {
+  padding-top: 3%;
+  width: 70%;
+ }
+
+ #exercises-list {
+  width: 30%;
+  background-color: #30c582;
+  color: white;
+ }
+
+ .nav-element {
+  font-size: 4em;
  }
