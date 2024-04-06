@@ -18,15 +18,16 @@ function BodyView() {
 
   const handleMouseClick = (event) => {
     // This function will handle data extraction with usage of API
+    console.log("Zmiana");
     setCurrentExercise({
       name: firstLetterUppercase(event.currentTarget.id),
-      description: "Exercise description"
+      description: firstLetterUppercase(event.currentTarget.id)
     });
 
   }
  
   return (
-    <div id="right-panel">
+    <div id="right-panel" style={{display: "flex", width: "95%"}}>
       <div id="bodies-panel">
       <h3 style={{height: "0.5%"}}>{ currentExerciseHover }</h3>
         <svg
@@ -297,8 +298,8 @@ function BodyView() {
         </svg>
       </div>
       <div id="exercises-list">
-        <h1>{ currentExercise.name }</h1>
-        { currentExercise.description }
+          <h1>{ currentExercise.name }</h1>
+          { currentExercise.description }
       </div>
     </div>
   );

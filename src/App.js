@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import BodyView from "./BodyView";
+import CalculatorsView from "./CalculatorsView";
 
 function App() {
  const [currentView, setCurrentView] = useState("home");
@@ -16,7 +17,7 @@ function App() {
         <i className="fa fa-bookmark-o fa-4x nav-element" id="nav-articles" onClick={() => handleViewChange("articles")}></i><br/>
       </div>
       {currentView === "home" && <BodyView/>}
-      {currentView === "calculators"}
+      {currentView === "calculators" && <CalculatorsView/>}
       {currentView === "articles"}
     </div>
  );
