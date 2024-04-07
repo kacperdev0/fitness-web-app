@@ -74,22 +74,3 @@ body {
   font-size: 4em;
  }
 
- .vertical-slider-container {
-  position: relative;
-  width: 50%; 
-}
-
-.vertical-slider {
-  background-color: #30c582;
-  position: absolute;
-  -webkit-appearance: slider-vertical;
-  appearance: slider-vertical;
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-  background-color: #30c582;
-}
-
-input[type=range]::-moz-range-track {
-  background-color: #30c582;
-}

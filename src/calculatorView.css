@@ -1,0 +1,42 @@
+ button {
+    margin-top: 5%;
+    width: 50%;
+    height: 10%;
+    background-color: #30c582;
+    font-size: 200%;
+    color: white;
+    border: none;
+  }
+
+  label {
+    font-size: 150%;
+  }
+
+  input {
+    width: 50%;
+    height: 10%;
+    background-color: #30c582;
+    font-size: 160%;
+    color: white;
+    border: none;
+    border-radius: 5%;
+    text-align: center;
+    margin-bottom: 10%;
+    margin-top: 2%;
+  }
+
+  .vertical-slider {
+    text-align: center;
+    height: 300px; 
+    width: 30px;
+    border: 3px solid #30c582;
+    border-radius: 3%;
+    margin-left: 47%;
+    margin-top: 5%;
+  }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+ -webkit-appearance: none;
+ margin: 0;
+}
