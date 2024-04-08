@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BodyView from "./BodyView";
 import CalculatorsView from "./CalculatorsView";
+import ArticlesView from "./ArticlesView";
 
 function App() {
  const [currentView, setCurrentView] = useState("home");
@@ -18,7 +19,7 @@ function App() {
       </div>
       {currentView === "home" && <BodyView/>}
       {currentView === "calculators" && <CalculatorsView/>}
-      {currentView === "articles"}
+      {currentView === "articles" && <ArticlesView/>}
     </div>
  );
 }
