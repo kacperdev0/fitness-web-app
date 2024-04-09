@@ -12,12 +12,8 @@ code {
     monospace;
 }
 
-body {
-  background-color: white;
-}
-
-.green-bg {
-  background-color: #30c582;
+.bg {
+  background-color: #121212;
   color: white;
 }
 
@@ -27,10 +23,12 @@ body {
   height: 100vh;
   top: 0;
   position: sticky;
+  border-right: 2px solid #333130;
 }
 
 #right-panel {
   text-align: center;
+  background-color: #2a2a2a;
 }
 
 .container {
@@ -38,7 +36,7 @@ body {
  }
 
  .nav-element {
-  margin-top: 30px;
+  margin-top: 40%;
  }
 
 
@@ -48,11 +46,11 @@ body {
  }
 
  .body-map__muscle path {
-  fill: white;
+  fill: #2a2a2a;
  }
 
  .body-map__muscle:hover path {
-  fill: #30c582;
+  fill: #d85f19;
  }
 
  *:focus {
@@ -66,11 +64,20 @@ body {
 
  #exercises-list {
   width: 30%;
-  background-color: #30c582;
+  background-color: #222222;
+  border-left: 2px solid #333130;
   color: white;
  }
 
  .nav-element {
-  font-size: 4em;
+  font-size: 3em;
+ }
+
+.icon {
+  font-size: 300%;
+}
+
+ .icon-text {
+  font-size: 90%;
  }
 
