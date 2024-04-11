@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import BodyView from "./BodyView";
 import CalculatorsView from "./CalculatorsView";
-<<<<<<< HEAD
-import "./App.css"
-=======
 import ArticlesView from "./ArticlesView";
->>>>>>> 375c251127e1aed68a95c98d5d02736078f3a0be
+import "./App.css"
 
 function App() {
  const [currentView, setCurrentView] = useState("home");
