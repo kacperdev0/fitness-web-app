@@ -39,36 +39,6 @@ code {
   margin-top: 40%;
  }
 
-
- .body-view {
-  width: 35%;
-  margin-left: 1%;
- }
-
- .body-map__muscle path {
-  fill: #2a2a2a;
- }
-
- .body-map__muscle:hover path {
-  fill: #d85f19;
- }
-
- *:focus {
-  outline: 0;
- }
-
- #bodies-panel {
-  padding-top: 3%;
-  width: 70%;
- }
-
- #exercises-list {
-  width: 30%;
-  background-color: #222222;
-  border-left: 2px solid #333130;
-  color: white;
- }
-
  .nav-element {
   font-size: 3em;
  }

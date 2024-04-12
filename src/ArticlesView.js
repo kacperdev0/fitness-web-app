@@ -4,9 +4,13 @@ import './articlesView.css';
 function ArticlesView() {
 
  const articles = [
-   {id: 1, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor"},
-   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor"},
-   {id: 3, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor"}
+   {id: 1, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
+   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
+   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
+   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
+   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
+   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
+   {id: 3, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"}
  ]
 
 
@@ -16,11 +20,18 @@ function ArticlesView() {
         <div className="arcticle-constainer">
          {articles.map((article, index) => (
             <div key={index} className="article-item">
-               <div style={{height: "70%"}}>
+               <div style={{height: "200px"}}>
                   <div><h3>{article.title}</h3></div>
                   <div>{article.description}</div>
                </div>
-               <div class="author-bar">{article.author}</div>
+               <div class="author-bar">
+                  <div style={{width: "70%"}}>
+                     {article.author}
+                  </div>
+                  <div style={{width: "27%", paddingRight: "3%", textAlign: "right"}}>
+                     {article.date}
+                  </div>
+               </div>
             </div>
          ))
         }</div>

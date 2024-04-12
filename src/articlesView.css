@@ -5,18 +5,18 @@
 }
 
 .article-item {
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 10px 10px;
     background-color: #121212;
     width: 45%;
-    height: 200px;
     margin-bottom: 40px;
 }
 
 .author-bar {
     text-align: left;
     width: 97%;
+    display: flex;
+    height: 50px;
     background-color: #d85f19;
-    height: 20%;
     padding: 2% 0 0 3%;
     border-radius: 0 0 10px 10px;
 }
