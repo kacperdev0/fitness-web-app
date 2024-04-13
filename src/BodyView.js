@@ -29,9 +29,16 @@ function BodyView() {
   }
  
   return (
-    <div id="right-panel" style={{display: "flex", width: "95%"}}>
-      <div id="bodies-panel" style={{width: currentBodyViewWidth + "%"}}>
-        <h3 style={{height: "0.5%", color: "white"}}>{ currentExerciseHover }</h3>
+    <div id="right-panel" style={{display: "flex", width: "95%", backgroundColor: "#222222"}}>
+      <div id="bodies-panel" style={
+        {width: currentBodyViewWidth + "%",
+         height: currentBodyViewWidth === 70 ? "93.8vh" : "40%",
+         backgroundColor: "#2a2a2a",
+         borderRight: "2px solid #333130",
+         borderBottom: currentBodyViewWidth === 70 ? "none" : "2px solid #333130"
+        }}>
+        <h3 style={{height: "5%", color: "white"}}>{ currentExerciseHover }</h3>
+         <div style={{width: "95%"}}>
           <svg
             class="body-view"
             viewBox="0 0 673 1200"
@@ -298,6 +305,7 @@ function BodyView() {
               ></path>
             </g>
           </svg>
+        </div>
       </div>
       <div id="exercises-list" style={{width: (100 - currentBodyViewWidth) + "%"}}>
           <h1>{ currentExercise.name }</h1>

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import './articlesView.css';
+import SingleArticleView from "./singleArticleView";
 
 function ArticlesView() {
+
+ const [selectedArticle, setSelectedArticle] = useState(null);
 
  const articles = [
    {id: 1, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
@@ -13,13 +16,25 @@ function ArticlesView() {
    {id: 3, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"}
  ]
 
+ const handleClick = (article) => {
+   let articleHTML = "<h1>Article</h1><div>This is <b>article</b> template</div>";
+   setSelectedArticle(articleHTML);
+ }
+
 
  return (
     <div id="right-panel" style={{ padding: "2%", width: "91%", color: "white"}}>
-        <h1>Articles</h1>
+        {selectedArticle ? (
+         <div>
+           <div style={{width: "100%", textAlign: "left"}}>
+            <i className="fa fa-arrow-circle-o-left fa-3x" onClick={() => {setSelectedArticle(null)}}></i>
+          </div> 
+          <SingleArticleView articleHTML={selectedArticle} />
+        </div>
+         ) : (
         <div className="arcticle-constainer">
          {articles.map((article, index) => (
-            <div key={index} className="article-item">
+            <div key={index} className="article-item" onClick={() => handleClick(article)}>
                <div style={{height: "200px"}}>
                   <div><h3>{article.title}</h3></div>
                   <div>{article.description}</div>
@@ -35,6 +50,7 @@ function ArticlesView() {
             </div>
          ))
         }</div>
+         )}
     </div>
  );
 
