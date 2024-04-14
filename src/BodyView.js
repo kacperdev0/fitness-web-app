@@ -38,7 +38,7 @@ function BodyView() {
          borderBottom: currentBodyViewWidth === 70 ? "none" : "2px solid #333130"
         }}>
         <h3 style={{height: "5%", color: "white"}}>{ currentExerciseHover }</h3>
-         <div style={{width: "95%"}}>
+         <div style={{marginLeft: "10%",width: "80%"}}>
           <svg
             class="body-view"
             viewBox="0 0 673 1200"
@@ -305,6 +305,9 @@ function BodyView() {
               ></path>
             </g>
           </svg>
+          <span><br/><i class={`fa fa-arrows-alt fa-3x maximize-icon ${currentBodyViewWidth !== 70 ? 'active' : ''}`} onClick={() => {
+            setCurrentBodyViewWidth(70);
+          }}></i></span>
         </div>
       </div>
       <div id="exercises-list" style={{width: (100 - currentBodyViewWidth) + "%"}}>
