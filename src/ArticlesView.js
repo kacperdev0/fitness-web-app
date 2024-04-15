@@ -27,7 +27,7 @@ function ArticlesView() {
         {selectedArticle ? (
          <div>
            <div style={{width: "100%", textAlign: "left"}}>
-            <i className="fa fa-arrow-circle-o-left fa-3x" onClick={() => {setSelectedArticle(null)}}></i>
+            <i className="fa fa-arrow-circle-o-left fa-3x change-color-on-hover" onClick={() => {setSelectedArticle(null)}}></i>
           </div> 
           <SingleArticleView articleHTML={selectedArticle} />
         </div>
@@ -35,7 +35,7 @@ function ArticlesView() {
         <div className="arcticle-constainer">
          {articles.map((article, index) => (
             <div key={index} className="article-item" onClick={() => handleClick(article)}>
-               <div style={{height: "200px"}}>
+               <div className="preview" style={{height: "200px"}}>
                   <div><h3>{article.title}</h3></div>
                   <div>{article.description}</div>
                </div>

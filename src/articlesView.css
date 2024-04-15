@@ -9,6 +9,11 @@
     background-color: #121212;
     width: 45%;
     margin-bottom: 40px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.article-item:hover {
+    background-color: #201f1f;
 }
 
 .author-bar {
@@ -19,4 +24,13 @@
     background-color: #d85f19;
     padding: 2% 0 0 3%;
     border-radius: 0 0 10px 10px;
+}
+
+.change-color-on-hover {
+    color: white;
+    transition: color 0.1s ease-in-out;
+}
+
+.change-color-on-hover:hover {
+    color: #d85f19;
 }
