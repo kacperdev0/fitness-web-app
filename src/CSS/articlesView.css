@@ -13,7 +13,11 @@
 }
 
 .article-item:hover {
-    background-color: #201f1f;
+    background-color: #181717;
+}
+
+.article-item:hover .author-bar {
+    background-color: #af4b11;
 }
 
 .author-bar {
@@ -24,6 +28,7 @@
     background-color: #d85f19;
     padding: 2% 0 0 3%;
     border-radius: 0 0 10px 10px;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .change-color-on-hover {

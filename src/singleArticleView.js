@@ -1,5 +1,5 @@
 import React from "react";
-import "./singleArticleView.css";
+import "./CSS/singleArticleView.css";
 
 function SingleArticleView({ articleHTML }) {
   console.log(articleHTML);

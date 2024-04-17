@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import "./calculatorView.css"
-import NumberInput from "./NumberInput";
-import SliderInput from "./SliderInput";
+import "./CSS/calculatorView.css"
+import SliderInput from "./Components/SliderInput";
 import { Typography } from "@mui/material";
 
 

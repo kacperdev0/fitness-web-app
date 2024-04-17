@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './articlesView.css';
+import './CSS/articlesView.css';
 import SingleArticleView from "./singleArticleView";
 
 function ArticlesView() {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./BodyView.css"
+import "./CSS/BodyView.css"
 
 function BodyView() {
   const [currentExercise, setCurrentExercise] = useState({name: "", description: ""});

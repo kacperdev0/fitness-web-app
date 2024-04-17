@@ -17,16 +17,16 @@ const SliderInput = ({ label, value, onChange, marks, ...props }) => {
         orientation="vertical"
         sx={{
             marginTop: "25px",
-            color: '#d85f19', // Change track color
+            color: '#d85f19',
             '& .MuiSlider-thumb': {
-              backgroundColor: '#d85f19', // Change thumb color
+              backgroundColor: '#d85f19',
             },
             '& .MuiSlider-valueLabel': {
-              color: 'white', // Change value label color
+              color: 'white',
               backgroundColor: "#d85f19"
             },
             '& .MuiSlider-markLabel': {
-              color: 'white', // Change marks color
+              color: 'white',
             }
           }}
         {...props}

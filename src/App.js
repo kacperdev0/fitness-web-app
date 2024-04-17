@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BodyView from "./BodyView";
 import CalculatorsView from "./CalculatorsView";
 import ArticlesView from "./ArticlesView";
-import "./App.css"
+import "./CSS/App.css"
 
 function App() {
  const [currentView, setCurrentView] = useState("home");
