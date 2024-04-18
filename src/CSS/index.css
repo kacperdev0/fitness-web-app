@@ -36,11 +36,21 @@ code {
  }
 
  .nav-element {
-  margin-top: 40%;
+  margin-top: 30%;
  }
 
  .nav-element {
   font-size: 3em;
+ }
+
+ .full-nav-element {
+  color: rgb(255, 255, 255);
+  transition: color 0.1s linear;
+ }
+
+
+ .full-nav-element:hover {
+  color: rgb(156, 155, 155);
  }
 
 .icon {

@@ -14,9 +14,9 @@ function App() {
  return (
     <div className="container">
       <div className="bg" id="navigation-panel">
-        <i className="fa fa-home fa-3x nav-element" id="nav-home" onClick={() => handleViewChange("home")}></i><br/><span className="icon-text">Home</span><br/>
-        <i className="fa fa-calculator fa-3x nav-element" id="nav-calculators" onClick={() => handleViewChange("calculators")}></i><br/><span className="icon-text">Calculators</span><br/>
-        <i className="fa fa-bookmark-o fa-3x nav-element" id="nav-articles" onClick={() => handleViewChange("articles")}></i><br/><span className="icon-text">Articles</span>
+        <div className="full-nav-element"><i className="fa fa-home fa-3x nav-element" id="nav-home" onClick={() => handleViewChange("home")}></i><br/><span className="icon-text">Home</span></div><br/>
+        <div className="full-nav-element"><i className="fa fa-calculator fa-3x nav-element" id="nav-calculators" onClick={() => handleViewChange("calculators")}></i><br/><span className="icon-text">Calculators</span></div><br/>
+        <div className="full-nav-element"><i className="fa fa-bookmark-o fa-3x nav-element" id="nav-articles" onClick={() => handleViewChange("articles")}></i><br/><span className="icon-text">Articles</span></div>
       </div>
       {currentView === "home" && <BodyView/>}
       {currentView === "calculators" && <CalculatorsView/>}

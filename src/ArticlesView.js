@@ -32,12 +32,12 @@ function ArticlesView() {
           <SingleArticleView articleHTML={selectedArticle} />
         </div>
          ) : (
-        <div className="arcticle-constainer">
+        <div className="arcticle-container">
          {articles.map((article, index) => (
             <div key={index} className="article-item" onClick={() => handleClick(article)}>
                <div className="preview" style={{height: "200px"}}>
                   <div><h3>{article.title}</h3></div>
-                  <div>{article.description}</div>
+                  <div>{article.description.length > 100 ? article.description.slice(0, 100) + '...' : article.description}</div>
                </div>
                <div class="author-bar">
                   <div style={{width: "70%"}}>

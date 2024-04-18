@@ -4,7 +4,8 @@ import "./CSS/BodyView.css"
 function BodyView() {
   const [currentExercise, setCurrentExercise] = useState({name: "", description: ""});
   const [currentExerciseHover, setCurrentExerciseHover] = useState(null);
-  const [currentBodyViewWidth, setCurrentBodyViewWidth] = useState(70)
+  const [isBodyViewMaximized, setIsBodyViewMaximized] = useState(true);
+  const [isExerciseListVisible, setIsExerciseListVisible] = useState(false);
 
   const firstLetterUppercase = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -21,7 +22,7 @@ function BodyView() {
   const handleMouseClick = (event) => {
     // This function will handle data extraction with usage of API
     console.log("Zmiana");
-    setCurrentBodyViewWidth(20);
+    setIsBodyViewMaximized(false);
     setCurrentExercise({
       name: firstLetterUppercase(event.currentTarget.id),
       description: firstLetterUppercase(event.currentTarget.id)
@@ -31,11 +32,9 @@ function BodyView() {
   return (
     <div id="right-panel" style={{display: "flex", width: "95%", backgroundColor: "#222222"}}>
       <div id="bodies-panel" style={
-        {width: currentBodyViewWidth + "%",
-         height: currentBodyViewWidth === 70 ? "93.8vh" : "40%",
-         backgroundColor: "#2a2a2a",
-         borderRight: "2px solid #333130",
-         borderBottom: currentBodyViewWidth === 70 ? "none" : "2px solid #333130"
+        {width: isBodyViewMaximized === true ? "70%" : "20%",
+         height: isBodyViewMaximized === true ? "99.8vh" : "40%",
+         borderBottom: isBodyViewMaximized === true ? "none" : "2px solid #333130"
         }}>
         <h3 style={{height: "5%", color: "white"}}>{ currentExerciseHover }</h3>
          <div style={{marginLeft: "10%",width: "80%"}}>
@@ -305,12 +304,12 @@ function BodyView() {
               ></path>
             </g>
           </svg>
-          <span><br/><i class={`fa fa-arrows-alt fa-3x maximize-icon ${currentBodyViewWidth !== 70 ? 'active' : ''}`} onClick={() => {
-            setCurrentBodyViewWidth(70);
+          <span><br/><i class={`fa fa-arrows-alt fa-3x maximize-icon ${isBodyViewMaximized === false ? 'active' : ''}`} onClick={() => {
+            setIsBodyViewMaximized(true);
           }}></i></span>
         </div>
       </div>
-      <div id="exercises-list" style={{width: (100 - currentBodyViewWidth) + "%"}}>
+      <div id="exercises-list" style={{width: isBodyViewMaximized == true ? "30%" : "70%"}}>
           <h1>{ currentExercise.name }</h1>
           { currentExercise.description }
       </div>
