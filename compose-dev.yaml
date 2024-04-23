@@ -1,0 +1,30 @@
+services:
+  backend:
+    image: ksawio/fitness-api:v2
+    ports:
+      - 8080:8080
+    restart: always
+    env_file:
+      - .env-docker
+    environment:
+      db-url: jdbc:postgresql://db:5432/${POSTGRES_DB}
+      allowed_origins: http://localhost,http://localhost:3000
+    depends_on:
+     - db 
+  db:
+    image: postgres:16.2-alpine
+    restart: always
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    expose:
+      - 5432
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    env_file:
+      - .env-docker
+
+volumes:
+  db-data:
