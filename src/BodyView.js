@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { findBodyPartByName } from "./api/body-part/BodyPartRequests";
 import "./CSS/BodyView.css"
+import ExercisesView from "./ExercisesView/ExercisesView";
 
 function BodyView() {
-  const [currentExercise, setCurrentExercise] = useState({name: "", description: ""});
+  const cachedBodyPartsIds = new Map();
+  const [exercisesIds, setExercisesIds] = useState([]);
   const [currentExerciseHover, setCurrentExerciseHover] = useState(null);
   const [isBodyViewMaximized, setIsBodyViewMaximized] = useState(true);
-  const [isExerciseListVisible, setIsExerciseListVisible] = useState(false);
 
   const firstLetterUppercase = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -18,15 +20,25 @@ function BodyView() {
   const handleMouseLeave = () => {
     setCurrentExerciseHover(null);
   }
-
+  // This function handles data extraction with usage of API
   const handleMouseClick = (event) => {
-    // This function will handle data extraction with usage of API
-    console.log("Zmiana");
-    setIsBodyViewMaximized(false);
-    setCurrentExercise({
-      name: firstLetterUppercase(event.currentTarget.id),
-      description: firstLetterUppercase(event.currentTarget.id)
-    });
+    const bodyPartName = event.target.parentElement.id;
+
+    // use cached result
+    if (cachedBodyPartsIds.has(bodyPartName)) {
+      setIsBodyViewMaximized(false);
+      setExercisesIds([...cachedBodyPartsIds[bodyPartName]]);
+    }
+    // create api request for current body part
+    findBodyPartByName(bodyPartName)
+      .then(bodyPart => bodyPart.exercises)
+      .then(ids => {
+        if (ids === undefined || ids.length === 0)
+          return;
+        cachedBodyPartsIds[bodyPartName] = [...ids];
+        setIsBodyViewMaximized(false);
+        setExercisesIds([...ids]);
+      }).catch(err => console.error(err));
   }
  
   return (
@@ -309,9 +321,8 @@ function BodyView() {
           }}></i></span>
         </div>
       </div>
-      <div id="exercises-list" style={{width: isBodyViewMaximized == true ? "30%" : "70%"}}>
-          <h1>{ currentExercise.name }</h1>
-          { currentExercise.description }
+      <div id="exercises-list">
+            <ExercisesView ids={exercisesIds}/>
       </div>
     </div>
   );

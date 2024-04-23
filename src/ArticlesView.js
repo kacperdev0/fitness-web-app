@@ -1,26 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './CSS/articlesView.css';
 import SingleArticleView from "./singleArticleView";
+import { findLastArticlesInfo } from "./api/article/ArticleRequests";
 
 function ArticlesView() {
+   const [articles, setArticles] = useState([]);
+   const [selectedArticle, setSelectedArticle] = useState(null);
 
- const [selectedArticle, setSelectedArticle] = useState(null);
-
- const articles = [
-   {id: 1, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
-   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
-   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
-   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
-   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
-   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
-   {id: 3, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"}
- ]
+   useEffect(() => {
+      findLastArticlesInfo()
+         .then(data => setArticles(data))
+         .catch(err => console.error(err));
+   }, []);
 
  const handleClick = (article) => {
    let articleHTML = "<h1>Article</h1><div>This is <b>article</b> template</div>";
    setSelectedArticle(articleHTML);
  }
-
 
  return (
     <div id="right-panel" style={{ padding: "2%", width: "91%", color: "white"}}>
@@ -37,14 +33,13 @@ function ArticlesView() {
             <div key={index} className="article-item" onClick={() => handleClick(article)}>
                <div className="preview" style={{height: "200px"}}>
                   <div><h3>{article.title}</h3></div>
-                  <div>{article.description.length > 100 ? article.description.slice(0, 100) + '...' : article.description}</div>
                </div>
                <div class="author-bar">
                   <div style={{width: "70%"}}>
                      {article.author}
                   </div>
                   <div style={{width: "27%", paddingRight: "3%", textAlign: "right"}}>
-                     {article.date}
+                     {article.publishDate}
                   </div>
                </div>
             </div>
