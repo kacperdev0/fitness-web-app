@@ -4,43 +4,45 @@
     height: 80%;
     transition: width 0.7s ease-in-out, height 0.7s ease-in-out;
 }
-  
+
 .body-map__muscle path {
     fill: #2a2a2a;
 }
-  
+
 .body-map__muscle:hover path {
     fill: #d85f19;
 }
-  
-   *:focus {
+
+*:focus {
     outline: 0;
-   }
-  
-   #bodies-panel {
+}
+
+#bodies-panel {
     transition: width 0.7s ease-in-out, height 0.7s ease-in-out;
     height: 0;
     background-color: #2a2a2a;
     border-right: 2px solid #333130;
-   }
-  
-   #exercises-list {
+}
+
+#exercises-list {
+    padding-left: 2%;
+    padding-right: 2%;
     text-align: left;
     transition: width 0.7s ease-in-out;
     background-color: #222222;
     color: white;
-   }
+}
 
-   .maximize-icon {
-     color: white;
-     margin-top: 6%;
-     opacity: 0;
-     transition: opacity 0.5s ease-in-out;
-     transition-delay: 0.26s;
-     
-    }
+.maximize-icon {
+    color: white;
+    margin-top: 6%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    transition-delay: 0.26s;
 
-      
-    .maximize-icon.active {
-        opacity: 1;
-    }
+}
+
+
+.maximize-icon.active {
+    opacity: 1;
+}
