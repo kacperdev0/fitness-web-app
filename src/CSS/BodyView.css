@@ -25,6 +25,7 @@
    }
   
    #exercises-list {
+    text-align: left;
     transition: width 0.7s ease-in-out;
     background-color: #222222;
     color: white;
