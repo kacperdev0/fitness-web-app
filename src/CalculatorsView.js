@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import "./CSS/calculatorView.css"
 import SliderInput from "./Components/SliderInput";
 import { Typography } from "@mui/material";
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Container from '@mui/material/Container';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 
 function CalculatorsView() {
@@ -63,9 +68,13 @@ function CalculatorsView() {
    
 
     return (
-      <div id="right-panel" style={{ padding: "2%", width: "91%", color: "white"}}>
-        <h1>BMI and Calorie Calculator</h1>
-        <div style={{ display: "flex", height: "500px"}}>
+      <div id="right-panel" style={{ padding: "2%", width: "91%", color: "rgb(63, 63, 63)"}}>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6">BMI & Calorie Calculator</Typography>
+          </Toolbar>
+        </AppBar>
+        <div style={{ display: "flex", height: "500px", marginTop: "2%"}}>
 
           <div style={{width: "20%", marginLeft: "20%", height: "100%"}}>
             <Typography>Height:</Typography>
@@ -108,7 +117,7 @@ function CalculatorsView() {
           
         </div>
 
-        <div style={{color: "white", fontSize: "150%", marginTop: "5%"}}>
+        <div style={{color: "rgb(63, 63, 63)", fontSize: "150%", marginTop: "5%"}}>
           <p>Your BMI: <span>{bmiValue}</span></p>
           <p>Estimated Daily Calories: <span>{calorieValue}</span></p>
         </div>

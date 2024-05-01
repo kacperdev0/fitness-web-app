@@ -4,7 +4,7 @@
     height: 10%;
     background-color: #30c582;
     font-size: 200%;
-    color: white;
+    color: rgb(105, 105, 105);
     border: none;
   }
 
@@ -17,7 +17,7 @@
     height: 10%;
     background-color: #30c582;
     font-size: 160%;
-    color: white;
+    color: rgb(63, 63, 63);
     border: none;
     border-radius: 5%;
     text-align: center;

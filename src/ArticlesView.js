@@ -2,9 +2,21 @@ import React, { useState, useEffect } from "react";
 import './CSS/articlesView.css';
 import SingleArticleView from "./singleArticleView";
 import { findLastArticlesInfo } from "./api/article/ArticleRequests";
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Avatar from '@mui/material/Avatar';
 
 function ArticlesView() {
-   const [articles, setArticles] = useState([]);
+   const [articles, setArticles] = useState([{id: 1, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
+   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
+   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
+   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
+   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
+   {id: 2, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"},
+   {id: 3, title: "Jak kłuć dupe?", description: "Strzykawką debilu", author: "autor", date: "15/12/2023"}]);
    const [selectedArticle, setSelectedArticle] = useState(null);
 
    useEffect(() => {
@@ -30,19 +42,42 @@ function ArticlesView() {
          ) : (
         <div className="arcticle-container">
          {articles.map((article, index) => (
-            <div key={index} className="article-item" onClick={() => handleClick(article)}>
-               <div className="preview" style={{height: "200px"}}>
-                  <div><h3>{article.title}</h3></div>
-               </div>
-               <div class="author-bar">
-                  <div style={{width: "70%"}}>
-                     {article.author}
-                  </div>
-                  <div style={{width: "27%", paddingRight: "3%", textAlign: "right"}}>
-                     {article.publishDate}
-                  </div>
-               </div>
+            <Card className="article-item">
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                  {article.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+               <Avatar 
+               alt="Avatar" 
+               src="https://th.bing.com/th/id/R.a0bd55bec80e37f8bbe0085d9535ffc7?rik=SgaLxefEhFF9Rw&pid=ImgRaw&r=0" 
+               style={{ marginRight: '13px' }} 
+               />
+               <Typography variant="body2" color="text.secondary" >
+               {article.author}
+               </Typography>
             </div>
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Share</Button>
+              <Button size="small" onClick={() => handleClick(article)}>Learn More</Button>
+            </CardActions>
+          </Card>
+            // <div key={index} className="article-item" onClick={() => handleClick(article)}>
+            //    <div className="preview" style={{height: "200px"}}>
+            //       <div><h3>{article.title}</h3></div>
+            //    </div>
+            //    <div class="author-bar">
+            //       <div style={{width: "70%"}}>
+            //          {article.author}
+            //       </div>
+            //       <div style={{width: "27%", paddingRight: "3%", textAlign: "right"}}>
+            //          {article.publishDate}
+            //       </div>
+            //    </div>
+            // </div>
          ))
         }</div>
          )}

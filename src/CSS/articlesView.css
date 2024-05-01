@@ -6,36 +6,7 @@
 
 .article-item {
     border-radius: 10px 10px 10px 10px;
-    background-color: #121212;
-    width: 45%;
+    width: 30%;
     margin-bottom: 40px;
     transition: background-color 0.2s ease-in-out;
-}
-
-.article-item:hover {
-    background-color: #181717;
-}
-
-.article-item:hover .author-bar {
-    background-color: #af4b11;
-}
-
-.author-bar {
-    text-align: left;
-    width: 97%;
-    display: flex;
-    height: 50px;
-    background-color: #d85f19;
-    padding: 2% 0 0 3%;
-    border-radius: 0 0 10px 10px;
-    transition: background-color 0.2s ease-in-out;
-}
-
-.change-color-on-hover {
-    color: white;
-    transition: color 0.1s ease-in-out;
-}
-
-.change-color-on-hover:hover {
-    color: #d85f19;
 }

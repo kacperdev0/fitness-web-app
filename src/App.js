@@ -3,6 +3,16 @@ import BodyView from "./BodyView";
 import CalculatorsView from "./CalculatorsView";
 import ArticlesView from "./ArticlesView";
 import "./CSS/App.css"
+import Divider from '@mui/material/Divider';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import HomeIcon from '@mui/icons-material/Home';
+import CalculateIcon from '@mui/icons-material/Calculate';
+import ArticleIcon from '@mui/icons-material/Article';
+
 
 function App() {
  const [currentView, setCurrentView] = useState("home");
@@ -14,9 +24,36 @@ function App() {
  return (
     <div className="container">
       <div className="bg" id="navigation-panel">
-        <div className="full-nav-element"><i className="fa fa-home fa-3x nav-element" id="nav-home" onClick={() => handleViewChange("home")}></i><br/><span className="icon-text">Home</span></div><br/>
-        <div className="full-nav-element"><i className="fa fa-calculator fa-3x nav-element" id="nav-calculators" onClick={() => handleViewChange("calculators")}></i><br/><span className="icon-text">Calculators</span></div><br/>
-        <div className="full-nav-element"><i className="fa fa-bookmark-o fa-3x nav-element" id="nav-articles" onClick={() => handleViewChange("articles")}></i><br/><span className="icon-text">Articles</span></div>
+        <Divider />
+          <List>
+            <ListItem key="Home" disablePadding  onClick={() => handleViewChange("home")}>
+              <ListItemButton>
+                <ListItemIcon>
+                    <HomeIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Home" />
+              </ListItemButton>
+            </ListItem>
+
+            <ListItem key="Calculators" disablePadding onClick={() => handleViewChange("calculators")}>
+              <ListItemButton>
+                <ListItemIcon>
+                    <CalculateIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Calculators" />
+              </ListItemButton>
+            </ListItem>
+
+            <ListItem key="Aricles" disablePadding onClick={() => handleViewChange("articles")}>
+              <ListItemButton>
+                <ListItemIcon>
+                    <ArticleIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Articles" />
+              </ListItemButton>
+            </ListItem>
+          </List>
+        <Divider /> 
       </div>
       {currentView === "home" && <BodyView/>}
       {currentView === "calculators" && <CalculatorsView/>}
