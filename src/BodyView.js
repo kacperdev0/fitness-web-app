@@ -3,8 +3,24 @@ import { findBodyPartByName } from "./api/body-part/BodyPartRequests";
 import "./CSS/BodyView.css"
 import ExercisesView from "./ExercisesView/ExercisesView";
 
+const cachedBodyPartsIds = new Map();
+const cachedExercisesIds = (bodyPartName) => {
+   // use cached result
+   if (cachedBodyPartsIds.has(bodyPartName)) {
+    return new Promise((resolve) => resolve(cachedBodyPartsIds.get(bodyPartName)));
+  }
+  // create api request for current body part
+  return findBodyPartByName(bodyPartName)
+    .then(bodyPart => bodyPart.exercises)
+    .then(ids => {
+      const added = [...ids];
+      cachedBodyPartsIds.set(bodyPartName, added);
+      return added;
+    });
+}
+
 function BodyView() {
-  const cachedBodyPartsIds = new Map();
+  
   const [exercisesIds, setExercisesIds] = useState([]);
   const [currentExerciseHover, setCurrentExerciseHover] = useState(null);
   const [isBodyViewMaximized, setIsBodyViewMaximized] = useState(true);
@@ -23,22 +39,13 @@ function BodyView() {
   // This function handles data extraction with usage of API
   const handleMouseClick = (event) => {
     const bodyPartName = event.target.parentElement.id;
-
-    // use cached result
-    if (cachedBodyPartsIds.has(bodyPartName)) {
-      setIsBodyViewMaximized(false);
-      setExercisesIds([...cachedBodyPartsIds[bodyPartName]]);
-    }
-    // create api request for current body part
-    findBodyPartByName(bodyPartName)
-      .then(bodyPart => bodyPart.exercises)
+    
+    cachedExercisesIds(bodyPartName)
       .then(ids => {
-        if (ids === undefined || ids.length === 0)
-          return;
-        cachedBodyPartsIds[bodyPartName] = [...ids];
         setIsBodyViewMaximized(false);
-        setExercisesIds([...ids]);
-      }).catch(err => console.error(err));
+        setExercisesIds(ids);
+      })
+      .catch(err => console.error(err));
   }
  
   return (
@@ -321,7 +328,7 @@ function BodyView() {
           }}></i></span>
         </div>
       </div>
-      <div id="exercises-list" style={{width: "30%"}}>
+      <div id="exercises-list" style={{width: "30%", color: "black"}}>
             <ExercisesView ids={exercisesIds}/>
       </div>
     </div>

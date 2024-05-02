@@ -15,3 +15,9 @@ Then run application localy
 ```
 npm start
 ```
+### Deployment
+Run this command to run Docker network.
+```
+docker compose up
+```
+You can now access app on localhost:80
