@@ -1,6 +1,6 @@
 services:
   backend:
-    image: ksawio/fitness-api:v2
+    image: ksawio/fitness-api:v3
     ports:
       - 8080:8080
     restart: always
