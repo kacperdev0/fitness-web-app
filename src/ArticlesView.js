@@ -8,17 +8,28 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
+import Loading from "./Loading";
 
 function ArticlesView() {
    const [articles, setArticles] = useState([]);
    const [selectedArticle, setSelectedArticle] = useState(null);
+   const [loading, setLoading] = useState(true)
 
    useEffect(() => {
       findLastArticlesInfo()
-         .then(data => setArticles(data))
-         .catch(err => console.error(err));
+         .then(data => {
+          setArticles(data)
+          setLoading(false)
+        })
+         .catch(err => {
+          console.error(err)
+          setLoading(false)
+        });
    }, []);
 
+   if (loading) {
+    return <Loading/>
+   }
  const handleClick = (article) => {
    let articleHTML = "<h1>Article</h1><div>This is <b>article</b> template</div>";
    setSelectedArticle(articleHTML);
