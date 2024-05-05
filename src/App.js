@@ -28,7 +28,7 @@ function App() {
           <Divider />
             <List>
               <ListItem key="Home" disablePadding>
-                <ListItemButton component={Link} to="/home" onClick={() => handleViewChange("home")}>
+                <ListItemButton component={Link} to="/" onClick={() => handleViewChange("home")}>
                   <ListItemIcon>
                       <HomeIcon/>
                   </ListItemIcon>
@@ -57,7 +57,7 @@ function App() {
           <Divider /> 
         </div>
         <Routes>
-          <Route path="/home" element={<BodyView />} />
+          <Route path="/" element={<BodyView />} />
           <Route path="/calculators" element={<CalculatorsView />} />
           <Route path="/articles" element={<ArticlesView />} />
         </Routes>
