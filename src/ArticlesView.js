@@ -36,7 +36,7 @@ function ArticlesView() {
  }
 
  return (
-    <div id="right-panel" style={{ padding: "2%", width: "91%", color: "white"}}>
+    <div id="right-panel" style={{ padding: "2%", width: "100%", color: "white"}}>
         {selectedArticle ? (
          <div>
            <div style={{width: "100%", textAlign: "left"}}>

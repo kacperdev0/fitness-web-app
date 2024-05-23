@@ -68,7 +68,7 @@ function CalculatorsView() {
    
 
     return (
-      <div id="right-panel" style={{ padding: "2%", width: "91%", color: "rgb(63, 63, 63)"}}>
+      <div id="right-panel" style={{ height: "92%", padding: "2%", width: "96%", color: "rgb(63, 63, 63)"}}>
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6">BMI & Calorie Calculator</Typography>

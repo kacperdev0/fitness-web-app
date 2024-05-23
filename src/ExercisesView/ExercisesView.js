@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { findExercisesByIds } from "../api/exercise/ExerciseRequests";
 import ExerciseView from "./ExerciseView/ExerciseView";
 
-// TODO it rerenders much, find it's cause
 function ExercisesView({ ids }) {
     const [exercises, setExercises] = useState([]);
 
@@ -22,7 +21,7 @@ function ExercisesView({ ids }) {
     return (
         <>
             {exercises.map(exercise => 
-                <ExerciseView exercise={exercise}/>
+                <ExerciseView exercise={exercise} key={`ExerciseView-${exercise.id}`}/>
             )}
         </>
     );
