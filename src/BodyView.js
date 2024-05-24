@@ -3,6 +3,7 @@ import { findBodyPartByName } from "./api/body-part/BodyPartRequests";
 import "./CSS/BodyView.css"
 import ExercisesView from "./ExercisesView/ExercisesView";
 import { useNavigate, useParams } from "react-router-dom";
+import { Grid, useMediaQuery } from '@mui/material';
 
 const cachedBodyPartsIds = new Map();
 const cachedExercisesIds = (bodyPartName) => {
@@ -67,11 +68,9 @@ function BodyView() {
   }
  
   return (
-    <div id="right-panel" style={{ height: "100%", display: "flex", width: "100%", backgroundColor: "#eceaea"}}>
-      <div id="bodies-panel" style={
-        {width: isBodyViewMaximized ? "70%" : "40%"
-        }}>
-        <h3 className="curr-body-part" style={{height: "5%", color: "rgb(63, 63, 63)"}}>{ currentExerciseHover == null ? "Body" : currentExerciseHover }</h3>
+    <Grid container style={{ height: "100%", width: "100%", backgroundColor: "#eceaea" }}>
+      <Grid item xs={12} sm={isBodyViewMaximized ? 8 : 5} style={{ display: "flex", flexDirection: "column" }}>
+        <h3 className="curr-body-part" style={{textAlign: "center", height: "5%", color: "rgb(63, 63, 63)"}}>{ currentExerciseHover == null ? "Body" : currentExerciseHover }</h3>
          <div style={{marginLeft: "10%",width: "80%"}}>
           <svg
             className="body-view"
@@ -345,11 +344,11 @@ function BodyView() {
             }}></i>
           </span>
         </div>
-      </div>
-      <div id="exercises-list" style={{width: isBodyViewMaximized  ? "30%" : "60%", color: "black"}}>
-          <ExercisesView ids={exercisesIds}/>
-      </div>
-    </div>
+        </Grid>
+      <Grid item xs={12} sm={isBodyViewMaximized ? 4 : 7} style={{ color: "black" }}>
+        <ExercisesView ids={exercisesIds} />
+      </Grid>
+    </Grid>
   );
 }
 
