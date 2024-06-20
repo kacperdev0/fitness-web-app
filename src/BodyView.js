@@ -70,9 +70,8 @@ function BodyView() {
     <div id="right-panel" style={{ height: "100%", display: "flex", width: "100%", backgroundColor: "#eceaea"}}>
       <div id="bodies-panel" style={
 
-        {width: isBodyViewMaximized ? "70%" : "20%",
-         height: isBodyViewMaximized ? "99.8vh" : "40%",
-         borderBottom: isBodyViewMaximized ? "none" : "2px solid #333130"
+        {width: isBodyViewMaximized ? "70%" : "60%",
+         height: isBodyViewMaximized ? "99.8vh" : "40%"
         }}>
         <h3 style={{height: "5%", color: "rgb(63, 63, 63)"}}>{ currentExerciseHover }</h3>
          <div style={{marginLeft: "10%",width: "80%"}}>
@@ -347,7 +346,7 @@ function BodyView() {
             }}></i></span>
         </div>
       </div>
-      <div id="exercises-list" style={{width: isBodyViewMaximized  ? "30%" : "60%", color: "black"}}>
+      <div id="exercises-list" style={{width: isBodyViewMaximized  ? "30%" : "40%", color: "black"}}>
           <ExercisesView ids={exercisesIds}/>
       </div>
     </div>

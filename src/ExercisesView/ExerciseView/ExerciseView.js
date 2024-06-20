@@ -14,7 +14,7 @@ function getChipType(content) {
 function ExerciseView({ exercise }) {
     if (exercise === undefined)
         return;
-    console.log(exercise.bodyParts);
+
     return (
         <>
             <h2>{exercise.title}</h2>

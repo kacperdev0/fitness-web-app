@@ -3,7 +3,6 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Avatar from '@mui/material/Avatar';
 import { Link } from 'react-router-dom';
 import ShareButtonView from './ShareButtonView';
 
@@ -15,15 +14,10 @@ function ArticlePreviewView({ article }) {
                   {article.title}
               </Typography>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Avatar 
-                alt="Avatar" 
-                src="https://th.bing.com/th/id/R.a0bd55bec80e37f8bbe0085d9535ffc7?rik=SgaLxefEhFF9Rw&pid=ImgRaw&r=0" 
-                style={{ marginRight: '13px' }} 
-                />
                 <div style={{ display: 'grid', gridTemplate: '1fr 1fr / 1fr' }}>
-                  <Typography variant="body2" color="text.secondary" >
+                  <Typography variant="body2" color="text.secondary" style={{textAlign: 'left'}}>
                   {article.author}
-                  </Typography><br></br>
+                  </Typography>
                   <Typography variant="body2" color="text.secondary" >
                     {"Publish date: " + new Date(article.publishDate).toLocaleDateString()}
                   </Typography>

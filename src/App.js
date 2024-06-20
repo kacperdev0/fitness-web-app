@@ -15,19 +15,7 @@ import CalculateIcon from '@mui/icons-material/Calculate';
 import ArticleIcon from '@mui/icons-material/Article';
 import ArticleView from "./ArticlesView/ArticleView";
 import NotFoundView from "./NotFoundView/NotFoundView";
-import ProfileView from "./ProfileView";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Grid } from '@mui/material';
-
-const user = {
-  name: 'John Doe',
-  avatar: 'https://via.placeholder.com/150',
-  rank: 'Gold Member',
-  caloriesBurned: 1234,
-  caloriesNeeded: 2000,
-  exerciseTime: '15 hrs',
-  description: 'An avid fitness enthusiast with a passion for outdoor activities and healthy living.',
-};
 
 function App() {
   return (
@@ -35,7 +23,7 @@ function App() {
       <div className="container">
         <Grid container>
           <Grid item xs={12} sm={1}>
-            <div className="bg" id="navigation-panel">
+            <div className="bg" id="navigation-panel" style={{width: 'fit-content'}}>
               <Divider />
               <List>
                 <ListItem key="Home" disablePadding>
@@ -66,16 +54,6 @@ function App() {
                 </ListItem>
               </List>
               <Divider />
-              <List>
-                <ListItem key="Profile" disablePadding>
-                  <ListItemButton component={Link} to="/profile">
-                    <ListItemIcon>
-                      <AccountCircleIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Profile" />
-                  </ListItemButton>
-                </ListItem>
-              </List>
             </div>
           </Grid>
           <Grid item xs={12} sm={11}>
@@ -83,7 +61,6 @@ function App() {
               <Route path="/" element={<BodyView />} />
               <Route path="/calculators" element={<CalculatorsView />} />
               <Route path="/articles" element={<ArticlesView />} />
-              <Route path="/profile" element={<ProfileView user={user} />} />
               <Route path="/articles/:id" element={<ArticleView />} />
               <Route path="/body-part/:bodyPartName" element={<BodyView />} />
               <Route path="*" element={<NotFoundView />} />
